@@ -1,12 +1,12 @@
 {
   "author": "Zak Henry",
-  "name": "princess-rally",
+  "name": "example-js13kgame",
   "version": "0.0.1",
   "homepage": "http://localhost:3000",
-  "description": "4mation entry to js13k 2014 entry. ",
+  "description": "An example of a js13k server game",
   "repository": {
     "type": "git",
-    "url": "https://?"
+    "url": "https://github.com/xiphiaz/js13k-server-boilerplate"
   },
   "license": {
     "type": "MIT",
@@ -35,8 +35,5 @@
     "grunt-conventional-changelog": "~0.1.1",
     "grunt-ngmin": "0.0.2",
     "grunt-text-replace": "~0.3.6"
-  },
-  "scripts": {
-    "test": "grunt test"
   }
 }

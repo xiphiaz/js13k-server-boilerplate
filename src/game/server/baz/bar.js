@@ -1,5 +1,1 @@
-log('server quux'); //comment
-
-/**
- block level comment
- */
+log('Loaded child server file'); //comment test
