@@ -12,24 +12,24 @@
 
 ## Quick Start
 
-1.  Install Global NodeJS modules (sudo may be needed, if not possible see (http://stackoverflow.com/a/21712034) )
+* Install Global NodeJS modules (sudo may be needed, if not possible see (http://stackoverflow.com/a/21712034) )
 ```sh
 $ sudo npm install -g grunt-cli
 ```
 
-2.  Install Local NodeJS modules
+* Install Local NodeJS modules
 ```sh
 $ sudo npm install
 ```
 
-3. Run Grunt Watch
-   Every change to your code will be automatically linted and moved into the build folder
+* Run Grunt Watch
+** Every change to your code will be automatically linted and moved into the build folder
 ```sh
 $ grunt watch
 ```
 
-3. Run Grunt Compile
-   Built code is minified, app js is concatenated and all code is archived into a .zip (Check your output is under 13k!)
+* Run Grunt Compile
+** Built code is minified, app js is concatenated and all code is archived into a .zip (Check your output is under 13k!)
 ```sh
 $ grunt
 ```
