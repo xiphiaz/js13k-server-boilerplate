@@ -22,9 +22,9 @@ module.exports = {
      */
     app_src: 'src/game/app',
     app_files: {
+        main_js: 'game/app/js/main.js',
 
         js: ['src/game/app/**/*.js'],
-
         html: ['src/game/app/index.html'],
 
         app_less: ['src/game/app/global.less'],

@@ -12,26 +12,33 @@
 
 ## Quick Start
 
-1. Install Global NodeJS modules (sudo may be needed, if not possible see (http://stackoverflow.com/a/21712034) )
+1. Clone this repo
     ```sh
-    $ sudo npm install -g grunt-cli
+    $ https://github.com/xiphiaz/js13k-server-boilerplate.git your-game-name
     ```
 
-2. Install Local NodeJS modules
+2. cd into directory
     ```sh
-    $ sudo npm install
+    $ cd your-game-name
     ```
 
-3. Run Grunt Watch
-
-    Every change to your code will be automatically linted and moved into the build folder
+3. Install Global NodeJS modules (sudo should not be needed, if you get errors see (http://stackoverflow.com/a/21712034)
     ```sh
-    $ grunt watch
+    $ npm install -g grunt-cli
     ```
 
-4. Run Grunt Compile
+4. Install Local NodeJS modules
+    ```sh
+    $ npm install
+    ```
+5. Edit the config .json files (./package.json, ./src/game.json, ./src/game/package.json) to your game name and info
+    * note the ./package.json "name" attribute - this is used later to install your game to the sandbox server
 
-    Built code is minified, app js is concatenated and all code is archived into a .zip (Check your output is under 13k!)
+6. Run Grunt task
+    The following happens:
+    * Code is linted and copied into build folder, index.html has it's assets (js/css etc) linked
+    * Built code is minified, application javascripts is concatenated into bin folder
+    * All code is archived into a .zip (Check your output is under 13k!)
     ```sh
     $ grunt
     ```
@@ -99,6 +106,33 @@ Created compressed/princess-rally.zip (8.1 kB)
 
 Done, without errors.
 ```
+
+# Development
+While developing, you can use the grunt task
+```sh
+$ grunt watch
+```
+To watch the files that have been changed to automatically complete the build process.
+
+# Testing in js-game-server (https://github.com/aurium/js-game-server)
+
+1. Complete the installation in the readme
+2. Test the example games are working at http://localhost:3000
+3. cd into the games folder (current default is ./examples, though this may change soon
+4. Symlink your game build folder into the games folder.
+    Example:
+    ```sh
+    $ ln -s ~/sites/js14k/your-game-name/build your-game-name
+    ```
+5. Restart the server
+    ```sh
+    $ cd <js-game-server dir>
+    npm start
+    ```
+6. Test your game
+7. To test your compiled and minified game, symlink the bin folder instead.
+
+Happy programming :)
 
 ### This toolchain is inspired by:
 * ng-boilerplate (http://joshdmiller.github.com/ng-boilerplate)

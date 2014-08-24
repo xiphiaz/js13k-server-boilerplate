@@ -203,11 +203,18 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                    cwd: '<%= compile_dir %>/game/server',
-                    src: '**/*.js',
-                    dest: '<%= compile_dir %>/game/server',
-                    expand: true
-                }]
+                        cwd: '<%= compile_dir %>/game/app',
+                        src: '**/*.js',
+                        dest: '<%= compile_dir %>/game/app',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= compile_dir %>/game/server',
+                        src: '**/*.js',
+                        dest: '<%= compile_dir %>/game/server',
+                        expand: true
+                    }
+                ]
             }
         },
 
@@ -287,6 +294,8 @@ module.exports = function (grunt) {
                 dir: '<%= build_dir %>',
                 src: [
                     '<%= build_dir %>/game/app/**/*.js',
+                    '!<%= build_dir %>/game/app/js/namespace.js',
+                    '!<%= build_dir %>/game/app/js/main.js',
                     '<%= build_dir %>/game/app/global.css',
                     '<%= build_dir %>/game/app/**/*.css'
                 ]
@@ -438,6 +447,9 @@ module.exports = function (grunt) {
      * A utility function to get all app JavaScript sources.
      */
     function filterForJS(files) {
+        files.push(grunt.config('build_dir')+'/'+grunt.config('app_files.main_js'));
+
+
         return files.filter(function (file) {
             return file.match(/\.js$/);
         });
@@ -459,6 +471,7 @@ module.exports = function (grunt) {
      * compilation.
      */
     grunt.registerMultiTask('index', 'Process index.html template', function () {
+
         var dirRE = new RegExp('^(' + grunt.config('build_dir') + '|' + grunt.config('compile_dir') + ')\/game\/', 'g');
         var jsFiles = filterForJS(this.filesSrc).map(function (file) {
             return file.replace(dirRE, '');
@@ -466,6 +479,9 @@ module.exports = function (grunt) {
         var cssFiles = filterForCSS(this.filesSrc).map(function (file) {
             return file.replace(dirRE, '');
         });
+
+        console.log('filtered files are', jsFiles);
+
 
         grunt.file.copy('src/game/app/index.html', this.data.dir + '/game/index.html', {
             process: function (contents, path) {
