@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Princess Rally</title>
+        <base href="/" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+            <link rel="stylesheet" type="text/css" href="/<%= file %>" />
+        <% }); %>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <!-- compiled JS --><% scripts.forEach( function ( file ) { %>
+            <script type="text/javascript" src="/<%= file %>"></script>
+        <% }); %>
+
+
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+
+        <h2>Sprite test:</h2>
+        <img src="/app/assets/Ranger-M-01.png" alt="sprite"/>
+    </body>
+
+</html>

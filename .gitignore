@@ -1,0 +1,9 @@
+*.sw*
+*~
+node_modules/
+vendor/
+.idea/
+build/
+bin/
+compressed/
+production/

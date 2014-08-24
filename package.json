@@ -1,0 +1,42 @@
+{
+  "author": "Zak Henry",
+  "name": "princess-rally",
+  "version": "0.0.1",
+  "homepage": "http://localhost:3000",
+  "description": "4mation entry to js13k 2014 entry. ",
+  "repository": {
+    "type": "git",
+    "url": "https://?"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  },
+  "contributors": [
+    {
+      "name": "Zak Henry",
+      "email": "zak.henry@gmail.com"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-bump": "0.0.6",
+    "grunt-coffeelint": "0.0.6",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-compress": "^0.10.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-conventional-changelog": "~0.1.1",
+    "grunt-ngmin": "0.0.2",
+    "grunt-text-replace": "~0.3.6"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
