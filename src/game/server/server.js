@@ -1,6 +1,19 @@
+'use strict';
+
 log('Hi! This is an example game!');
-require('./baz/bar');
+var Player = require('./player/player'); //you can require child js files
 
+var io = require('sandbox-io');
+log('Loaded sandbox-io', io);
 
-var socketio = require('sandbox-io');
-log('Loaded sandbox-io', socketio);
+io.on('connection', function(socket) {
+
+    log.debug('New connection', socket.id);
+
+    var player = new Player(socket);
+
+    socket.on('disconnect', function(){
+        io.emit('farewell', player.name);
+    });
+
+});

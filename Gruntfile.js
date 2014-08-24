@@ -186,7 +186,8 @@ module.exports = function (grunt) {
                 },
                 src: [
                     'module.prefix',
-                    '<%= build_dir %>/game/app/**/*.js',
+                    '<%= build_dir %>/game/app/js/**/*.js',
+                    '<%= build_dir %>/game/app/main.js',
                     'module.suffix'
                 ],
                 dest: '<%= compile_dir %>/game/app/<%= pkg.name %>.js'
@@ -293,9 +294,8 @@ module.exports = function (grunt) {
 
                 dir: '<%= build_dir %>',
                 src: [
-                    '<%= build_dir %>/game/app/**/*.js',
-                    '!<%= build_dir %>/game/app/js/namespace.js',
-                    '!<%= build_dir %>/game/app/js/main.js',
+                    '<%= build_dir %>/game/app/js/**/*.js',
+                    '<%= build_dir %>/game/app/main.js', //always include main.js AFTER the rest of the js files
                     '<%= build_dir %>/game/app/global.css',
                     '<%= build_dir %>/game/app/**/*.css'
                 ]
@@ -374,9 +374,10 @@ module.exports = function (grunt) {
              */
             jssrc: {
                 files: [
-                    '<%= app_files.js %>'
+                    '<%= app_files.js %>',
+                    '<%= server_files.js %>'
                 ],
-                tasks: ['jshint:src', 'copy:build_appjs']
+                tasks: ['jshint:src', 'copy:build_appjs','copy:build_serverjs']
             },
 
             /**
@@ -385,7 +386,7 @@ module.exports = function (grunt) {
              */
             assets: {
                 files: [
-                    'src/assets/**/*'
+                    'src/game/app/assets/**/*'
                 ],
                 tasks: ['copy:build_assets']
             },
@@ -447,8 +448,6 @@ module.exports = function (grunt) {
      * A utility function to get all app JavaScript sources.
      */
     function filterForJS(files) {
-        files.push(grunt.config('build_dir')+'/'+grunt.config('app_files.main_js'));
-
 
         return files.filter(function (file) {
             return file.match(/\.js$/);
