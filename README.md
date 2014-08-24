@@ -23,12 +23,14 @@
     ```
 
 3. Run Grunt Watch
+
     Every change to your code will be automatically linted and moved into the build folder
     ```sh
     $ grunt watch
     ```
 
 4. Run Grunt Compile
+
     Built code is minified, app js is concatenated and all code is archived into a .zip (Check your output is under 13k!)
     ```sh
     $ grunt
